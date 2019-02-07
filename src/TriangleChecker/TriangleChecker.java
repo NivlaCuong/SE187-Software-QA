@@ -77,6 +77,10 @@ class TriangleChecker {
         public String toString() {
             return "This triangle has the length of X = " + x + ", Y = " + y + ", Z = " + z + ", and type is " + triangleType;
         }
+        
+        public TriangleType getTriangleType() {
+        	return triangleType;
+        }
     }
 
 }
