@@ -1,3 +1,12 @@
 .idea/
 out/
 /bin/
+<<<<<<< HEAD
+=======
+
+.DS_Store/
+.classpath
+.project
+
+
+>>>>>>> 91b96c9... [finish spec] Added JUnit test code
