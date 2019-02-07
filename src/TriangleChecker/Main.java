@@ -6,7 +6,7 @@ package TriangleChecker;
 public class Main {
 
     public static void main(String[] args) {
-        TriangleChecker triangleChecker = new TriangleChecker(4,5,3);
+        TriangleChecker triangleChecker = new TriangleChecker(5,4,3);
 
         triangleChecker.checkTriangleType();
 
