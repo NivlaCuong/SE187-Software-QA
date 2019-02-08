@@ -22,7 +22,7 @@ public class TriangleCheckerTest {
 				assertEquals(triangleChecker.getTriangle().getTriangleType(), TriangleChecker.TriangleType.SCALENE);
 			}
 		}
-		
+		// test if my branch works
 	}
 
 }
