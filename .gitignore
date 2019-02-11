@@ -2,11 +2,17 @@
 out/
 /bin/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 3cc2848239b229a48a252a55b2208e248e1e2a1e
 
 .DS_Store/
 .classpath
 .project
+<<<<<<< HEAD
 
 
 >>>>>>> 91b96c9... [finish spec] Added JUnit test code
+=======
+>>>>>>> 3cc2848239b229a48a252a55b2208e248e1e2a1e
