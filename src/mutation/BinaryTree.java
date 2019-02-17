@@ -7,6 +7,8 @@ class BinaryTree<T> {
 
     /* The root node of the tree. */
     TreeNode root;
+    private StringBuilder strInorder = new StringBuilder();
+    private StringBuilder strPreorder = new StringBuilder();
 
     /* Constructs an empty binary tree. */
     BinaryTree() {
@@ -18,13 +20,17 @@ class BinaryTree<T> {
         root = t;
     }
 
-    /* Represents a node in the binary tree. */
+    /** Represents a node in the binary tree. */
     protected class TreeNode {
 
         T item;
         TreeNode left;
         TreeNode right;
 
+        /**
+         * Constructor with only one key
+         * @param item
+         */
         TreeNode(T item) {
             this.item = item;
             left = right = null;
@@ -39,6 +45,7 @@ class BinaryTree<T> {
         /* Use for testing. */
         private void printPreorder() {
             System.out.print(item + " ");
+            strPreorder.append(item);
             if (left != null) {
                 left.printPreorder();
             }
@@ -52,6 +59,7 @@ class BinaryTree<T> {
             if (left != null) {
                 left.printInorder();
             }
+            strInorder.append(item);
             System.out.print(item + " ");
             if (right != null) {
                 right.printInorder();
@@ -71,6 +79,21 @@ class BinaryTree<T> {
         }
     }
 
+    /**
+     *
+     * @return the StringBuilder of the tree Preorder
+     */
+    StringBuilder getPreorderString() {
+        return strPreorder;
+    }
+
+    /**
+     * @return the StringBuilder of the tree Inorder
+     */
+    StringBuilder getInorderString() {
+        return strInorder;
+    }
+
     /** Print the values in the tree in inorder: values in the left
      * subtree first (in inorder), then the root value, then values
      * in the right subtree (in inorder). */
@@ -84,7 +107,7 @@ class BinaryTree<T> {
     }
 
     /* Used for testing. */
-    protected static void print(BinaryTree<?> t, String description) {
+    static void print(BinaryTree<?> t, String description) {
         System.out.println(description + " in preorder");
         t.printPreorder();
         System.out.println(description + " in inorder");
