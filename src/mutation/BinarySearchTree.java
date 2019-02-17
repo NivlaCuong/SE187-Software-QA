@@ -6,7 +6,7 @@ package mutation;
 public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
 	
 	/* Constructs an empty BST. */
-	public BinarySearchTree() {
+	BinarySearchTree() {
 		super();
 	}
 
@@ -15,12 +15,12 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
 		super(root);
 	}
 	
-	/* Returns true if and only if KEY is in the BST. */
+	/** Returns true if and only if KEY is in the BST. */
 	boolean search(T key) {
 		return searchHelper(key, root);
 	}
 
-	boolean searchHelper(T key, TreeNode cur) {
+	private boolean searchHelper(T key, TreeNode cur) {
 		if (cur == null) {
 			return false;
 		}
@@ -36,15 +36,15 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
 	}
 
 	
-	/* Adds a node for KEY iff it isn't in the BST already. */
-	public void add(T key) {
+	/** Adds a node for KEY iff it isn't in the BST already. */
+	void add(T key) {
 		if (root == null) {
 			root = new TreeNode(key);
 		}
 		addHelper(key,root);
 	}
 
-	void addHelper(T key, TreeNode cur) {
+	private void addHelper(T key, TreeNode cur) {
 		if (!search(key)) {
 			if (cur.item.compareTo(key) > 0 && cur.left == null) {
 				cur.left = new TreeNode(key);
@@ -62,8 +62,8 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
 		}
 	}
 	
-	/* Deletes the node with KEY. */
-	public T delete(T key) {
+	/** Deletes the node with KEY. */
+	T delete(T key) {
 		TreeNode parent = null;
 		TreeNode curr = root;
 		TreeNode delNode = null;
@@ -122,5 +122,4 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
 		}
 		return delNode.item;
 	}
-	
 }
