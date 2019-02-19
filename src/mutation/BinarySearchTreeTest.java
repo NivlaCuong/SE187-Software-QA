@@ -31,14 +31,12 @@ public class BinarySearchTreeTest {
         NullPointerException = null;
 
         /* Add initial integers for intBST Tree */
-        intBST.add(5);
-        intBST.add(3);
         intBST.add(2);
-        intBST.add(6);
-        intBST.add(1);
+        intBST.add(4);
         intBST.add(10);
-        intBST.add(7);
         intBST.add(8);
+        intBST.add(20);
+        intBST.add(6);
 
         /* Add initial String for stringBST Tree */
         stringBST.add("C");
@@ -58,19 +56,18 @@ public class BinarySearchTreeTest {
 
         // [TRUE] Test for a regular cases
         assertTrue(intBST.search(8));
-        assertTrue(intBST.search(3));
-        assertTrue(intBST.search(5));
-        assertTrue(intBST.search(7));
 
         // [TRUE] Test to find the largest element
         assertTrue(intBST.search(10));
 
         // [TRUE] Test to find the smallest element
-        assertTrue(intBST.search(1));
+        assertTrue(intBST.search(2));
 
         // [FALSE] Test search for element that is not in the list
         assertFalse(intBST.search(13));
         assertFalse(intBST.search(-1));
+        assertFalse(intBST.search(5));
+        assertFalse(intBST.search(7));
 
         // [FALSE] Test search when tree is empty
         assertFalse(emptyBST.search(0));
@@ -104,8 +101,10 @@ public class BinarySearchTreeTest {
         // Test if the tree can add negative number
         System.out.println("After inserting negative number");
         intBST.add(-1);
-        intBST.add(-92);
-        intBST.add(-12);
+        intBST.add(7);
+
+        // Test if add 2 same number. Should not be add into BST if it's already in there
+        intBST.add(-2);
         intBST.add(-2);
         BinaryTree.print(intBST, "Integer BST");
 
@@ -122,7 +121,7 @@ public class BinarySearchTreeTest {
 
         // [NULL] Test if the key is not in the tree for deleting
         assertNull(intBST.delete(-1));
-        assertNull(intBST.delete(1000));
+        assertNull(intBST.delete(1));
 
         /*
          * [return "A"] and delete A out of the tree
