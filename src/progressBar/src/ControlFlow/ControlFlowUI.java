@@ -1,4 +1,4 @@
-package ControlFlow;
+package progressBar.src.ControlFlow;
 
 import java.awt.Color;
 import java.awt.Dimension;
