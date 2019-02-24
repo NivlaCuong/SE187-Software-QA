@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class ProgressBarTest {
 	
-	private ProgressBar pb;
+	private ProgBar pb;
 
 	
 	@Test
@@ -59,15 +59,25 @@ public class ProgressBarTest {
 	@Test
 	public void insideCorrectCircleArea(){
 		
-//		assertEquals(pb.insideCorrectCircleArea(90, 30, 30), "RED");
-		for(int i =0; i < 100; i++){
-			if (i < 15 || i > 85){
-				assertTrue(pb.insideCorrectCircleArea(50, i, i));
-			} 
-//			else {
-//				assertFalse(pb.insideCorrectCircleArea(50, i, i));
-//			}
+		// Coordinates on quadrant 1 when it is 25%
+		for(int i = 51; i < 100; i++)
+			for(int j = 51; j < 100; j++)
+				assertTrue(pb.insideCorrectCircleArea(25, i, j));
+		
+		// Coordinates on quadrant 2 when it is 50%
+		for(int i = 0; i < 50; i++)
+			for(int j = 51; j < 100; j++)
+				assertTrue(pb.insideCorrectCircleArea(50, i, j));
+		
+		// Coordinates on quadrant 3 when it is 75%
+		for(int i = 0; i < 50; i++)
+			for(int j = 0; j < 50; j++)
+				assertTrue(pb.insideCorrectCircleArea(75, i, j));
+		
+		// Coordinates on quadrant 4 when it is 100%
+		for(int i = 51; i < 100; i++)
+			for(int j = 0; j < 50; j++)
+				assertTrue(pb.insideCorrectCircleArea(100, i, j));
 
-		}
 	}
 }
