@@ -20,6 +20,8 @@ public class ProgBarTest {
 	@Test
 	public void printColor() {
 		assertEquals(pb.printColor(50, 25, 25), "BLUE");
+		assertEquals(pb.printColor(75, 25, 25), "RED");
+		assertEquals(pb.printColor(68, 15, 85), "BLUE");
 	}
 
 	@SuppressWarnings("static-access")
