@@ -1,40 +1,52 @@
 package progressBar;
 
 public class ProgBar {
-	
+
 	public String printColor(double percentage, double x, double y) {
-		double degreesForRedColor = percentage / 100 * 360;
-		if (percentage < 0 || percentage > 100) return "BLUE";
-		if (!insideCircle(x, y)) return "BLUE";
-		if (insideCorrectCircleArea(degreesForRedColor, x, y)) return "RED";
-		else return "BLUE";
-	}
-	
-	public boolean insideCircle(double x, double y) {
-		// the center point of the circle is (50, 50)
-		// if the distance between a point and the center point > 50, return false
-		return (Math.pow(Math.pow((x - 50), 2) + Math.pow((y - 50), 2), 0.5) < 50);
-	}
-	
-	public boolean insideCorrectCircleArea(double degreesForRedColor, double x, double y) {
-		// the center point of the circle is (50, 50)
-		// use trigonometry to obtain the angle based on the center point
-		return (Math.toDegrees(Math.atan(Math.abs(x - 50) / Math.abs(y - 50))) < degreesForRedColor);
-	}
-	
-	public static void main(String args[]) {
-		// below code is just for testing, should be tested more thoroughly using JUnit
-		ProgBar pb = new ProgBar();
-		System.out.println(pb.printColor(12.5, 83, 33));
-		System.out.println(pb.printColor(50, 25, 25));
-		System.out.println(pb.printColor(75, 83, 33));
-		System.out.println(pb.printColor(25, 1, 33));
-//		pb.printColor(12.5, 83, 33);
+//		double degreesForRedColor = percentage / 100 * 360;
+		if (percentage < 0 || percentage > 100) return "ERROR";
+		else if (!insideCircle(x, y)) return "BLUE";
+		else {
+			if (insideCorrectCircleArea(percentage, x, y)) {
+				return "RED";
+			}
+			else return "BLUE";
+		}
 
 	}
-	
-	// utility method
-	public void println(String msg) {
-		System.out.println(msg);
+
+	public static boolean insideCircle(double x, double y) {
+		// the center point of the circle is (50, 50)
+		// if the distance between a point and the center point > 50, return false
+		return Math.pow(Math.pow((x - 50), 2) + Math.pow((y - 50), 2), 0.5) < 50;
+	}
+
+	public static boolean insideCorrectCircleArea(double percentage, double x, double y) {
+		// the center point of the circle is (50, 50)
+		// use trigonometry to obtain the angle based on the center point
+		double degreesForRedColor = (percentage / 100) * 360;
+
+//		double degreesForQuadrant1 = Math.toDegrees(Math.atan((y - 50) / (x - 50)));
+//		double degreesForQuadrant23 = 180 + Math.toDegrees(Math.atan((y - 50) / (x - 50)));
+//		double degreesForQuadrant4 = 360 + Math.toDegrees(Math.atan((y - 50) / (x - 50)));
+
+		double degreesForQuadrant1 = Math.toDegrees(Math.atan((y + 50) / (x + 50)));
+		double degreesForQuadrant2 = 90 + Math.toDegrees(Math.atan((y + 50) / (x + 50)));
+		double degreesForQuadrant3 = 180 + Math.toDegrees(Math.atan((y + 50) / (x + 50)));
+		double degreesForQuadrant4 = 360 + Math.toDegrees(Math.atan((y + 50) / (x + 50)));
+
+		if (x >= 50 && y >= 50) {
+//			println("Quadrant 1: " + degreesForQuadrant1);
+			return degreesForQuadrant1 <= degreesForRedColor;
+		} else if (x <= 50 && y >= 50 ) {
+//			System.out.println("Quadrant 4: " + degreesForQuadrant4);
+			return degreesForQuadrant4 <= degreesForRedColor;
+		} else if (x <= 50 && y <= 50) {
+//			println("Quadrant 3: " + degreesForQuadrant3);
+			return degreesForQuadrant3 <= degreesForRedColor;
+		} else {
+//			println("Quadrant 2: " + degreesForQuadrant2);
+			return degreesForQuadrant2 <= degreesForRedColor;
+		}
 	}
 }
