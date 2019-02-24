@@ -1,6 +1,10 @@
 package progressBar;
 
+import org.junit.Test;
+
 import static org.junit.Assert.*;
+//import static org.junit.Assert.assertFalse;
+//import static org.junit.Assert.assertTrue;
 
 /**
  * Check the three functions of the ProgressBar
@@ -9,18 +13,19 @@ import static org.junit.Assert.*;
  * 3) Inside Correct Circle Area
  */
 
-import org.junit.Test;
-
 public class ProgressBarTest {
 	
-	private ProgressBar pb;
-
+	ProgBar pb = new ProgBar();
 	
 	@Test
 	public void printColor() {
-//		assertEquals(pb.printColor(99, 25, 25), "RED");
+		assertEquals("BLUE", pb.printColor(10, 25, 25));
+		assertEquals("BLUE", pb.printColor(25, 25, 25));
+		assertEquals("RED", pb.printColor(90, 25, 25));
+		assertEquals("RED", pb.printColor(75, 25, 25));
+
 	}
-	
+
 	@SuppressWarnings("static-access")
 	@Test
 	public void insideCircle(){
