@@ -1,13 +1,13 @@
-package ControlFlow;
+package progressBar.src.ControlFlow;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 public class ControlFlowTest {
   public JComponent makeUI() {
     JProgressBar progress = new JProgressBar();
     // use JProgressBar#setUI(...) method
-    progress.setUI(new ControlFlowUI());
+    progress.setUI(new ControlFlow.ControlFlowUI());
     progress.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
     progress.setStringPainted(true);
     progress.setFont(progress.getFont().deriveFont(24f));
