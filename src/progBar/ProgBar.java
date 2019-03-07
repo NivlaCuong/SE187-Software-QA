@@ -1,4 +1,4 @@
-package progressBar;
+package progBar;
 
 public class ProgBar {
 
