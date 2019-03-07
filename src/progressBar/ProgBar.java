@@ -37,11 +37,19 @@ public class ProgBar {
 
         if (x >= 50 && y >= 50) {
 //			println("Quadrant 1: " + degreesForQuadrant1);
+<<<<<<< HEAD
             return degreesForQuadrant1 <= degreesForRedColor;
         } else if (x < 50 && y > 50 ) {
 //			System.out.println("Quadrant 4: " + degreesForQuadrant4);
             return degreesForQuadrant4 <= degreesForRedColor;
         } else if (x < 50 && y < 50) {
+=======
+			return degreesForQuadrant1 <= degreesForRedColor;
+		} else if (x < 50 && y > 50 ) {
+//			System.out.println("Quadrant 4: " + degreesForQuadrant4);
+			return degreesForQuadrant4 <= degreesForRedColor;
+		} else if (x < 50 && y < 50) {
+>>>>>>> 208a4a8... [fix impl] fix the postion for quadrants and move circle clockwise
 //			println("Quadrant 3: " + degreesForQuadrant3);
             return degreesForQuadrant3 <= degreesForRedColor;
         } else {
