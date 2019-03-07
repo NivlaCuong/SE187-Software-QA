@@ -1,4 +1,4 @@
-package progressBar;
+package progBar;
 
 import org.junit.Test;
 
