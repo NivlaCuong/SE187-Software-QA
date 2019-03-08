@@ -1,5 +1,7 @@
 package dataFlow;
 
+import static org.junit.Assert.assertTrue;
+
 public class palindrome {
 
     private int phraseLength;
