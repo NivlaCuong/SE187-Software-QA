@@ -10,7 +10,7 @@ public class palindromeTest {
 	@Test
 	public void test() {
 		// check if empty string is palindrome
-		StringBuilder a = new StringBuilder(" ");
+		StringBuilder a = new StringBuilder("abba abba");
         palindrome p = new palindrome(a);
         assertTrue(p.isPalidrome());
         
@@ -29,7 +29,12 @@ public class palindromeTest {
         testThreeLettersStrings_TwoCharDiff(a, p);
         
 	}
-	
+
+	/**
+	 *  Test for a String with 1 letter
+	 * @param a
+	 * @param p
+	 */
 	void testOneLetterStrings(StringBuilder a, palindrome p) {
         for (int i = 97; i <= 122; i++) {	
         	String s = "";
@@ -39,7 +44,10 @@ public class palindromeTest {
             assertTrue(p.isPalidrome());
         }
 	}
-	
+
+	/**
+	 * Test for a String with 2 same letters
+	 */
 	void testTwoLetterStrings_SameChars(StringBuilder a, palindrome p) {
         for (int i = 97; i <= 122; i++) {	
         	String s = "";
@@ -51,7 +59,12 @@ public class palindromeTest {
             assertTrue(p.isPalidrome());
         }
 	}
-	
+
+	/**
+	 *
+	 * @param a
+	 * @param p
+	 */
 	void testTwoLetterStrings_DiffChars(StringBuilder a, palindrome p) {
         for (int i = 97; i <= 122; i++) {
         	String s = "";

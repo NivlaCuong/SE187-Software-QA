@@ -46,8 +46,9 @@ public class palindrome {
         StringBuilder a = new StringBuilder("madam");
         palindrome p = new palindrome(a);
 
-        if (p.isPalidrome()) System.out.println(a.toString() + " is a palindrome.");
-        else System.out.println(a.toString() + " is not a palindrome.");
+        if (p.isPalidrome()) System.out.println(a.toString() + " is a palindrome with the length " + p.phraseLength);
+        else System.out.println(a.toString() + " is not a palindrome with the lenghth " + p.phraseLength);
+
     }
 
 
