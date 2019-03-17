@@ -17,10 +17,10 @@ public class ScoreDeterminationTest {
      */
     @Before
     public void setUp() throws Exception {
-        c = new ScoreDetermination();
+        c = new ScoreDetermination(25);
         Random random = new Random();
         for(int i = 0; i <= 50; i++) {
-          int ranNum = random.nextInt(103 + 3) - 3;
+          int ranNum = random.nextInt(c.getTestPercentage() + 3) - 3;
           c.addScore(ranNum);
         }
     }
@@ -31,27 +31,28 @@ public class ScoreDeterminationTest {
      */
     @Test
     public void scoreDetermination() {
+        System.out.println("Testing with " + c.getTestPercentage() + "% of the total grade\n");
         c.scoreDetermination();
-        System.out.println("This is the result: \n" + c.getLetterGradeList());
-        for (int s : c.getScoreList()) {
+
+        for (int s : c.getNewScoreList()) {
             String letterGrade = c.getLetterGradeList().get(s);
             if (s < 0 || s > 100) assertEquals(letterGrade, "ERROR");
-            else if (s >= 97) assertEquals(letterGrade, "A+");
-            else if (s >= 93) assertEquals(letterGrade, "A");
-            else if (s >= 90) assertEquals(letterGrade, "A-");
+            else if (s >= 97) assertEquals("A+", letterGrade);
+            else if (s >= 93) assertEquals("A", letterGrade);
+            else if (s >= 90) assertEquals("A-", letterGrade);
 
-            else if (s >= 87) assertEquals(letterGrade, "B+");
-            else if (s >= 83) assertEquals(letterGrade, "B");
-            else if (s >= 80) assertEquals(letterGrade, "B-");
+            else if (s >= 87) assertEquals("B+", letterGrade);
+            else if (s >= 83) assertEquals("B", letterGrade);
+            else if (s >= 80) assertEquals("B-", letterGrade);
 
-            else if (s >= 77) assertEquals(letterGrade, "C+");
-            else if (s >= 73) assertEquals(letterGrade, "C");
-            else if (s >= 70) assertEquals(letterGrade, "C-");
+            else if (s >= 77) assertEquals("C+", letterGrade);
+            else if (s >= 73) assertEquals("C", letterGrade);
+            else if (s >= 70) assertEquals("C-", letterGrade);
 
-            else if (s >= 67) assertEquals(letterGrade, "D+");
-            else if (s >= 63) assertEquals(letterGrade, "D");
-            else if (s >= 59) assertEquals(letterGrade, "D-");
-            else assertEquals(letterGrade, "F");
+            else if (s >= 67) assertEquals("D+", letterGrade);
+            else if (s >= 63) assertEquals("D", letterGrade);
+            else if (s >= 59) assertEquals("D-", letterGrade);
+            else assertEquals("F", letterGrade);
         }
     }
 }

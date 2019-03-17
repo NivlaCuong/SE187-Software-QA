@@ -8,16 +8,19 @@ import java.util.HashMap;
  */
 public class ScoreDetermination {
 
-    private ArrayList<Integer> scoreList;
+    private int testPercentage;
+    private ArrayList<Integer> scoreList, newScoreList;
     private HashMap<Integer, String> letterGradeList;
+
 
     /**
      * Constructor that will initialize the class
      */
-    ScoreDetermination() {
+    ScoreDetermination(int testPercent) {
         scoreList = new ArrayList<>();
+        newScoreList = new ArrayList<>();
         letterGradeList = new HashMap<>();
-
+        testPercentage = testPercent;
     }
 
     /**
@@ -25,8 +28,10 @@ public class ScoreDetermination {
      * @return a Letter Grade
      */
     void scoreDetermination() {
-        for (Integer score : scoreList) {
+        for (int i : scoreList) {
             String result;
+            int score = (i * 100) / testPercentage;
+
             if (score < 0 || score > 100) result = "ERROR";
             else if (score >= 97) result = "A+";
             else if (score >= 93) result = "A";
@@ -44,10 +49,25 @@ public class ScoreDetermination {
             else if (score >= 63) result = "D";
             else if (score >= 59) result = "D-";
             else result = "F";
+
+            System.out.println("Original = " + i + " - New Score = " + score + "% - result = " + result);
+            newScoreList.add(score);
             letterGradeList.put(score, result);
         }
     }
 
+    public int getTestPercentage() {
+        return testPercentage;
+    }
+
+
+    public ArrayList<Integer> getScoreList() {
+        return scoreList;
+    }
+
+    public ArrayList<Integer> getNewScoreList() {
+        return newScoreList;
+    }
 
     void addScore(int score) {
         scoreList.add(score);
@@ -55,9 +75,5 @@ public class ScoreDetermination {
 
     public HashMap<Integer, String> getLetterGradeList() {
         return letterGradeList;
-    }
-
-    public ArrayList<Integer> getScoreList() {
-        return scoreList;
     }
 }
