@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 public class palindromeTest {
 
 	@Test
@@ -13,24 +16,28 @@ public class palindromeTest {
         palindrome p = new palindrome(a);
         assertTrue(p.isPalidrome());
         
-        // test one-letter strings "from a-z"
-        // should be palindrome
+        /* test one-letter strings "from a-z" -> should be palindrome */
         testOneLetterStrings(a, p);
-        // test two-letter strings "from aa, bb, cc - zz"
-        // should be palindrome
+
+        /* test two-letter strings "from aa, bb, cc - zz"  -> should be palindrome*/
         testTwoLetterStrings_SameChars(a, p);
-        // test two-letter strings "from ab, ac, ..., bc, cd ..."
-        // should not be palindrome
+
+        /* test two-letter strings "from ab, ac, ..., bc, cd ..." -> should not be palindrome */
         testTwoLetterStrings_DiffChars(a, p);
-        // test three-letter strings "from aba, bcb, cdc, ..."
-        // should be palindrome
+        /* test three-letter strings "from aba, bcb, cdc, ..." -> should be palindrome */
+
         testThreeLettersStrings_MidCharDiff(a, p);
-        // test two-letter strings "from aab, bbc, ccd, ..."
-        // should not be palindrome
+        /* test two-letter strings "from aab, bbc, ccd, ..." -> should not be palindrome */
         testThreeLettersStrings_TwoCharDiff(a, p);
         
 	}
-	
+
+	/**
+	 *  Test for a String with 1 letter
+	 * @param a
+	 * @param p
+	 */
+
 	void testOneLetterStrings(StringBuilder a, palindrome p) {
         for (int i = 97; i <= 122; i++) {	
         	String s = "";
@@ -40,7 +47,11 @@ public class palindromeTest {
             assertTrue(p.isPalidrome());
         }
 	}
-	
+
+	/**
+	 * Test for a String with 2 same letters
+	 */
+
 	void testTwoLetterStrings_SameChars(StringBuilder a, palindrome p) {
         for (int i = 97; i <= 122; i++) {	
         	String s = "";
@@ -52,7 +63,7 @@ public class palindromeTest {
             assertTrue(p.isPalidrome());
         }
 	}
-	
+
 	void testTwoLetterStrings_DiffChars(StringBuilder a, palindrome p) {
         for (int i = 97; i <= 122; i++) {
         	String s = "";
